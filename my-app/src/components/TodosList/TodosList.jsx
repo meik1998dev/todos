@@ -5,6 +5,7 @@ import {
    completeTodos,
    removeTodos,
    updateTodos,
+   updateDiscription
 } from '../../redux/reducer';
 import TodoItem from '../TodoItem/TodoItem';
 
@@ -12,24 +13,8 @@ const TodosList = (props) => {
    return (
       <div className='displaytodos'>
          <ul>
-            {/* for completed items */}
-            {props.todos.length > 0 && sort === 'completed'
-               ? props.todos.map((item) => {
-                    return (
-                       item.completed === true && (
-                          <TodoItem
-                             key={item.id}
-                             item={item}
-                             removeTodo={props.removeTodo}
-                             updateTodo={props.updateTodo}
-                             completeTodo={props.completeTodo}
-                          />
-                       )
-                    );
-                 })
-               : null}
             {/* for all items */}
-            {props.todos.length > 0
+            {props.todos
                ? props.todos.map((item) => {
                     return (
                        <TodoItem
@@ -38,6 +23,7 @@ const TodosList = (props) => {
                           removeTodo={props.removeTodo}
                           updateTodo={props.updateTodo}
                           completeTodo={props.completeTodo}
+                          updateDiscription= {props.updateDiscription}
                        />
                     );
                  })
@@ -59,6 +45,7 @@ const mapDispatchToProps = (dispatch) => {
       removeTodo: (id) => dispatch(removeTodos(id)),
       updateTodo: (obj) => dispatch(updateTodos(obj)),
       completeTodo: (id) => dispatch(completeTodos(id)),
+      updateDiscription: (obj) => dispatch(updateDiscription(obj))
    };
 };
 

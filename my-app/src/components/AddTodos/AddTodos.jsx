@@ -39,12 +39,7 @@ const AddTodos = (props) => {
          </Button>
          <br />
 
-         <ul>
-            {props.todos.length > 0 &&
-               props.todos.map((item) => {
-                  return <TodoItem />;
-               })}
-         </ul>
+      
       </div>
    );
 };
