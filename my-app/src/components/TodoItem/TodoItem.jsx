@@ -8,13 +8,6 @@ const TodoItem = (props) => {
    const [open, setOpen] = React.useState(false);
    const inputRef = useRef(true);
 
-   const update = (id, value, e) => {
-      if (e.which === 13) {
-         updateTodo({ id, item: value });
-         inputRef.current.disabled = true;
-      }
-   };
-
    const style = {
       position: 'absolute',
       top: '50%',
@@ -31,7 +24,13 @@ const TodoItem = (props) => {
       <>
          {item && (
             <li key={item.id} className='card'>
-               <h4>{item.item}</h4>
+               <h4
+                  style={{
+                     textDecoration: item.completed ? 'line-through' : 'none',
+                  }}
+               >
+                  {item.item}
+               </h4>
                <div className='btns'>
                   <button onClick={() => setOpen(true)}>edit</button>
                   {item.completed === false && (
