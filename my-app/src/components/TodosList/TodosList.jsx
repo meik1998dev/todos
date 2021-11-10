@@ -14,7 +14,7 @@ const TodosList = (props) => {
       <div className='displaytodos'>
          <ul>
             {/* for all items */}
-            {props.todos
+            {props.todos.length > 0
                ? props.todos.map((item) => {
                     return (
                        <TodoItem

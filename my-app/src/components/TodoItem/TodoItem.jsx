@@ -31,13 +31,7 @@ const TodoItem = (props) => {
       <>
          {item && (
             <li key={item.id} className='card'>
-               <textarea
-                  ref={inputRef}
-                  disabled={inputRef}
-                  defaultValue={item.item}
-                  value={item.item}
-                  onKeyPress={(e) => update(item.id, inputRef.current.value, e)}
-               />
+               <h4>{item.item}</h4>
                <div className='btns'>
                   <button onClick={() => setOpen(true)}>edit</button>
                   {item.completed === false && (
